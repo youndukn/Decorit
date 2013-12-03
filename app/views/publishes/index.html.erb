@@ -1,0 +1,27 @@
+<h1>Listing publishes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Publishtitle</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @publishes.each do |publish| %>
+      <tr>
+        <td><%= publish.publishTitle %></td>
+        <td><%= link_to 'Show', publish %></td>
+        <td><%= link_to 'Edit', edit_publish_path(publish) %></td>
+        <td><%= link_to 'Destroy', publish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Publish', new_publish_path %>
