@@ -1,27 +1,18 @@
-<h1>Listing publishes</h1>
+<div class="page-header">
+  <h1>All of the Publish<h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Publishtitle</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= link_to "Post a New Publish", new_publish_path, class: "btn btn-success" %>
 
-  <tbody>
-    <% @publishes.each do |publish| %>
-      <tr>
-        <td><%= publish.publishTitle %></td>
-        <td><%= link_to 'Show', publish %></td>
-        <td><%= link_to 'Edit', edit_publish_path(publish) %></td>
-        <td><%= link_to 'Destroy', publish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Publish', new_publish_path %>
+<% @publishes.each do |publish| %>
+<div class="publish">
+  <p><%= publish.publishTitle %> </p>
+  <div class="meta">
+    <%= link_to time_ago_in_words(publish.created_at) + "ago", publish %>
+    <span class="admin">
+      | <%= link_to "Edit", edit_publish_path(publish) %> |
+      <%= link_to "Delete", publish, method: :delete, data: { confirm: "Are you sure?"} %>
+    </span>
+  </div>
+</div>
+<% end %>
