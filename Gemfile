@@ -9,6 +9,9 @@ gem 'sqlite3'
 # Use Devise to user
 gem 'devise'
 
+# User Simple Form to modify form
+gem 'simple_form'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

@@ -6,6 +6,7 @@
 
 <% @publishes.each do |publish| %>
 <div class="publish">
+	<strong> <%= publish.user.full_name %> </strong>
   <p><%= publish.publishTitle %> </p>
   <div class="meta">
     <%= link_to time_ago_in_words(publish.created_at) + "ago", publish %>
