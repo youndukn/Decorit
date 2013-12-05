@@ -1,6 +1,7 @@
 class PublishesController < ApplicationController
   before_action :set_publish, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:new]
+  
   # GET /publishes
   # GET /publishes.json
   def index

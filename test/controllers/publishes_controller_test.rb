@@ -1,10 +1,11 @@
 require 'test_helper'
 
 class PublishesControllerTest < ActionController::TestCase
+
   setup do
     @publish = publishes(:one)
   end
-
+  
   test "should get index" do
     get :index
     assert_response :success
@@ -13,7 +14,8 @@ class PublishesControllerTest < ActionController::TestCase
 
   test "should get new" do
     get :new
-    assert_response :success
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
   end
 
   test "should create publish" do
@@ -28,7 +30,11 @@ class PublishesControllerTest < ActionController::TestCase
     get :show, id: @publish
     assert_response :success
   end
-
+  test "should render the new page when logged in" do
+    sign_in users(:younduk)
+    get :new
+    assert_response :success
+  end
   test "should get edit" do
     get :edit, id: @publish
     assert_response :success
